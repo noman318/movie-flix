@@ -1,12 +1,13 @@
 import React from "react";
 import { useGetAllMoviesQuery } from "../slices/movieApiSlice";
+import MovieCard from "../components/MovieCard";
 
 const HomeScreen = () => {
   const { data } = useGetAllMoviesQuery({});
   console.log("data", data);
   return (
-    <div>
-      <h1 className="">Home</h1>
+    <div className=" p-8 grid grid-cols-3 gap-4">
+      <MovieCard />
     </div>
   );
 };
