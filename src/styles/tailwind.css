@@ -1,7 +1,9 @@
 @tailwind base;
 
 /* Your own custom base styles */
-
+body {
+  @apply bg-black text-white;
+}
 /* Start purging... */
 @tailwind components;
 /* Stop purging. */
