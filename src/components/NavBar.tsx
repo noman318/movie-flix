@@ -22,14 +22,17 @@ const Navbar = () => {
 
   return (
     <nav className="bg-black">
-      <div className="w-full flex items-center justify-between p-4 flex-col md:flex-row">
-        <h1 className="text-4xl font-bold text-red-600">MovieFlix</h1>
-        <form className="relative">
+      <div className="w-full flex items-center justify-between p-4 flex-row">
+        <h1 className="text-4xl font-bold text-red-600">
+          <span className="block sm:hidden">M</span>
+          <span className="hidden sm:block">MovieFlix</span>
+        </h1>
+        <form className="relative -mr-16 md:mr-2">
           <input
             type="text"
             placeholder="Search movies..."
             onChange={handleSearchChange}
-            className="bg-gray-700 text-white px-4 py-2 pl-10 pr-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="bg-gray-700 text-white px-4 py-2 pl-10 pr-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-600 w-3/4 md:w-full"
           />
           <button className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white pointer-events-none">
             <FaSearch />
