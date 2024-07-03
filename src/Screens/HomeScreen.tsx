@@ -16,7 +16,7 @@ const HomeScreen = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
   const { data: genresData } = useGetGenresQuery({});
-  const { data, isLoading, isFetching, error } = useGetMoviesQuery({
+  const { data, isLoading, isFetching, error, refetch } = useGetMoviesQuery({
     year,
     page,
     genre: selectedGenre,
@@ -62,6 +62,11 @@ const HomeScreen = () => {
       }
     }
   }, [hasMore, isLoading, isFetching, term]);
+  useEffect(() => {
+    if (!term) {
+      refetch();
+    }
+  }, [refetch, term]);
 
   useEffect(() => {
     const handleScroll = () => {
