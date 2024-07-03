@@ -40,6 +40,7 @@ const GenreTabs: React.FC<GenreTabsProps> = ({
         msOverflowStyle: "none",
         scrollbarWidth: "none",
       }}
+      data-testid="genre-tabs"
     >
       <button
         onClick={() => handleTabClick(null)}

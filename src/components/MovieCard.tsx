@@ -14,7 +14,10 @@ function MovieCard({ movie }: MovieCardProps) {
   };
 
   return (
-    <div className="relative w-64 h-96 rounded-md overflow-hidden shadow-lg transition duration-300 ease-in-out transform hover:scale-105 group">
+    <div
+      className="relative w-64 h-96 rounded-md overflow-hidden shadow-lg transition duration-300 ease-in-out transform hover:scale-105 group"
+      data-testid="movie-card"
+    >
       <img
         className="w-full h-full object-cover"
         src={imageUrl}
