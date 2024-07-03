@@ -28,3 +28,11 @@ export interface GenreTabsProps {
   genresData: GenresData;
   handleGenreChange: (genreId: string | null) => void;
 }
+
+export interface SearchState {
+  term: string;
+}
+
+export interface IRootState {
+  search: SearchState;
+}

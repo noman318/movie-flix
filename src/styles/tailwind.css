@@ -13,5 +13,8 @@ body {
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
+html {
+  scroll-behavior: smooth;
+}
 
 /* Your own custom utilities */

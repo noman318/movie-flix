@@ -17,7 +17,14 @@ export const apiSlice = createApi({
     getGenres: builder.query({
       query: () => `/genre/movie/list?api_key=${API_KEY}`,
     }),
+    searchMovies: builder.query({
+      query: ({ query, page = 1 }) =>
+        `/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(
+          query
+        )}&page=${page}&append_to_response=original_title`,
+    }),
   }),
 });
 
-export const { useGetMoviesQuery, useGetGenresQuery } = apiSlice;
+export const { useGetMoviesQuery, useGetGenresQuery, useSearchMoviesQuery } =
+  apiSlice;

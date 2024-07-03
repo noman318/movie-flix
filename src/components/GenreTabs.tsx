@@ -9,23 +9,21 @@ const GenreTabs: React.FC<GenreTabsProps> = ({
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (scrollContainerRef.current) {
-        e.preventDefault();
-        scrollContainerRef.current.scrollLeft += e.deltaY;
-      }
-    };
-
     const container = scrollContainerRef.current;
     if (container) {
-      container.addEventListener("wheel", handleWheel, { passive: false });
-    }
+      const handleWheel = (e: WheelEvent) => {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          container.scrollLeft += e.deltaY + e.deltaX;
+        }
+      };
 
-    return () => {
-      if (container) {
+      container.addEventListener("wheel", handleWheel, { passive: false });
+
+      return () => {
         container.removeEventListener("wheel", handleWheel);
-      }
-    };
+      };
+    }
   }, []);
 
   const handleTabClick = (genreId: string | null) => {
@@ -37,11 +35,15 @@ const GenreTabs: React.FC<GenreTabsProps> = ({
     <div
       ref={scrollContainerRef}
       className="flex overflow-x-auto whitespace-nowrap pb-2"
-      style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      style={{
+        scrollBehavior: "smooth",
+        msOverflowStyle: "none",
+        scrollbarWidth: "none",
+      }}
     >
       <button
         onClick={() => handleTabClick(null)}
-        className={`px-4 py-2 mx-1 rounded-xl ${
+        className={`px-4 py-2 mx-1 rounded-xl flex-shrink-0 ${
           selectedGenre === null
             ? "bg-red-600 text-white"
             : "bg-gray-200 text-black"
@@ -49,11 +51,11 @@ const GenreTabs: React.FC<GenreTabsProps> = ({
       >
         All Genres
       </button>
-      {genresData?.genres.map((genre) => (
+      {genresData?.genres.slice(0, -1).map((genre) => (
         <button
           key={genre.id}
           onClick={() => handleTabClick(genre.id)}
-          className={`px-4 py-2 mx-1 rounded-xl ${
+          className={`px-4 py-2 mx-1 rounded-xl flex-shrink-0 ${
             selectedGenre === genre.id
               ? "bg-red-600 text-white"
               : "bg-gray-200 text-black"
