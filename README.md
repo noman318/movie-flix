@@ -13,6 +13,10 @@
 - Redux Toolkit (RTK) for state management
 - RTK Query for efficient API data fetching and caching
 
+### Deloyed Version of app
+
+(https://movie-flix-016d34.netlify.app/)[https://movie-flix-016d34.netlify.app/]
+
 The application will start running on [http://localhost:3000](http://localhost:3000). Open this URL in your browser to view the app.
 
 ## Available Scripts
@@ -39,19 +43,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-## Features
-
-- Browse a collection of movies
-- Search for movies by title
-- Responsive design for various screen sizes
-
-## Technologies Used
-
-- React
-- Vanilla CSS for styling
-- Redux Toolkit (RTK) for state management
-- RTK Query for efficient API data fetching and caching
 
 ## Learn More
 
