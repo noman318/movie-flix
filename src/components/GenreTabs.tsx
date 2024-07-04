@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import "./GenreTabs.css";
 import { GenreTabsProps } from "../interfaces/IMovie";
-
 const GenreTabs: React.FC<GenreTabsProps> = ({
   genresData,
   handleGenreChange,
@@ -30,37 +30,23 @@ const GenreTabs: React.FC<GenreTabsProps> = ({
     setSelectedGenre(genreId);
     handleGenreChange(genreId);
   };
-
   return (
     <div
       ref={scrollContainerRef}
-      className="flex overflow-x-auto whitespace-nowrap pb-2"
-      style={{
-        scrollBehavior: "smooth",
-        msOverflowStyle: "none",
-        scrollbarWidth: "none",
-      }}
+      className="genre-tabs"
       data-testid="genre-tabs"
     >
       <button
         onClick={() => handleTabClick(null)}
-        className={`px-4 py-2 mx-1 rounded-xl flex-shrink-0 ${
-          selectedGenre === null
-            ? "bg-red-600 text-white"
-            : "bg-gray-200 text-black"
-        }`}
+        className={`tab ${selectedGenre === null ? "active" : ""}`}
       >
         All Genres
       </button>
-      {genresData?.genres.slice(0, -1).map((genre) => (
+      {genresData?.genres.map((genre) => (
         <button
           key={genre.id}
           onClick={() => handleTabClick(genre.id)}
-          className={`px-4 py-2 mx-1 rounded-xl flex-shrink-0 ${
-            selectedGenre === genre.id
-              ? "bg-red-600 text-white"
-              : "bg-gray-200 text-black"
-          }`}
+          className={`tab ${selectedGenre === genre.id ? "active" : ""}`}
         >
           {genre.name}
         </button>

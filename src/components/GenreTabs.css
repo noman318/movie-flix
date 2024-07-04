@@ -1,0 +1,30 @@
+.genre-tabs {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 0.5rem;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.genre-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 0.75rem;
+  flex-shrink: 0;
+  background-color: #e5e7eb;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab.active {
+  background-color: #dc2626;
+  color: #ffffff;
+}

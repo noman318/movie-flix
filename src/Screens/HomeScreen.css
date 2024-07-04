@@ -1,0 +1,44 @@
+.genre-section {
+  margin-top: 6rem;
+}
+
+.movies-container {
+  padding: 1rem;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .movies-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1536px) {
+  .movies-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

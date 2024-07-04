@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent, act } from "@testing-library/react";
-import Navbar from "./NavBar"; // Adjust the import path based on your directory structure
+import Navbar from "./Navbar"; // Adjust the import path based on your directory structure
 import { useDispatch } from "react-redux";
 import { setSearchTerm } from "../slices/searchSlice";
 import GenreTabs from "./GenreTabs";
@@ -51,7 +51,7 @@ describe("Navbar component", () => {
 
     const { getByPlaceholderText } = render(<Navbar />);
 
-    const input = getByPlaceholderText("Search movies...");
+    const input = getByPlaceholderText("Titles");
 
     fireEvent.change(input, { target: { value: "Star Wars" } });
 
@@ -77,8 +77,8 @@ describe("Navbar component", () => {
     const actionGenreButton = getByText("Action");
     expect(actionGenreButton).toBeInTheDocument();
 
-    expect(allGenresButton).toHaveClass("bg-red-600 text-white");
-    expect(actionGenreButton).not.toHaveClass("bg-red-600 text-white");
+    expect(allGenresButton).toHaveClass("active");
+    expect(actionGenreButton).not.toHaveClass("active");
   });
 
   test("handles genre tab click and state change", () => {
@@ -96,10 +96,12 @@ describe("Navbar component", () => {
 
     expect(handleGenreChange).toHaveBeenCalledWith("2");
 
-    expect(comedyGenreButton).toHaveClass("bg-red-600 text-white");
+    expect(comedyGenreButton).toHaveClass("active");
 
     const allGenresButton = getByText("All Genres");
-    expect(allGenresButton).not.toHaveClass("bg-red-600 text-white");
+    fireEvent.click(comedyGenreButton);
+
+    expect(allGenresButton).not.toHaveClass("active");
   });
 
   test("renders MovieCard component with movie details", () => {

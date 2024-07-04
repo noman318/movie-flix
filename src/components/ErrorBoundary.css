@@ -1,0 +1,12 @@
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.error-container p {
+  font-size: 1rem;
+  color: #e4e2e2;
+  text-align: center;
+}

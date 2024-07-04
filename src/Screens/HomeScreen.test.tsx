@@ -91,12 +91,14 @@ describe("HomeScreen", () => {
         vote_count: 5341,
       },
     ];
+    const mockRefetch = jest.fn();
 
     (useGetMoviesQuery as jest.Mock).mockReturnValue({
       data: { results: mockMovies, total_pages: 1 },
       isLoading: false,
       isFetching: false,
       error: null,
+      refetch: mockRefetch,
     });
 
     render(

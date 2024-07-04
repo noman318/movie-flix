@@ -1,12 +1,9 @@
 import React from "react";
-
+import "./Loader.css";
 const Loader = () => {
   return (
-    <div
-      className="flex justify-center items-center h-screen"
-      data-testid="loading"
-    >
-      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-red-500"></div>
+    <div className="loader-container" data-testid="loading">
+      <div className="spinner"></div>
     </div>
   );
 };

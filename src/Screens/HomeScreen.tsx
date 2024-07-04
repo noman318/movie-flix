@@ -1,3 +1,4 @@
+import "./HomeScreen.css";
 import { useState, useEffect, useCallback, useRef } from "react";
 import MovieCard from "../components/MovieCard";
 import { IRootState, Movie } from "../interfaces/IMovie";
@@ -7,9 +8,8 @@ import {
   useGetGenresQuery,
   useSearchMoviesQuery,
 } from "../slices/apiSlice";
-import GenreTabs from "../components/GenreTabs";
 import { useSelector } from "react-redux";
-
+import GenreTabs from "../components/GenreTabs";
 const HomeScreen = () => {
   const [year, setYear] = useState(2012);
   const [page, setPage] = useState(1);
@@ -64,7 +64,9 @@ const HomeScreen = () => {
   }, [hasMore, isLoading, isFetching, term]);
   useEffect(() => {
     if (!term) {
-      refetch();
+      try {
+        refetch();
+      } catch (error) {}
     }
   }, [refetch, term]);
 
@@ -90,26 +92,28 @@ const HomeScreen = () => {
     setMovies([]);
   };
   return (
-    <div>
-      <div className="mb-4 mt-8">
-        <GenreTabs
-          genresData={genresData}
-          handleGenreChange={handleGenreChange}
-        />
-      </div>
-      <div className="p-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-4">
-          {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))}
+    <>
+      <div>
+        <div className="genre-section">
+          <GenreTabs
+            genresData={genresData}
+            handleGenreChange={handleGenreChange}
+          />
         </div>
-        {(isLoading || isFetching) && page > 1 && (
-          <div className="flex justify-center mt-4">
-            <Loader />
+        <div className="movies-container">
+          <div className="movies-grid">
+            {movies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
           </div>
-        )}
+          {(isLoading || isFetching) && page > 1 && (
+            <div className="loader-container">
+              <Loader />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

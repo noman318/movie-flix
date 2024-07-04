@@ -1,4 +1,5 @@
 import React, { Component, ReactNode } from "react";
+import "./ErrorBoundary.css";
 
 interface Props {
   children: ReactNode;
@@ -25,7 +26,7 @@ class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="flex items-center justify-center h-screen">
+        <div className="error-container">
           <p>Something went wrong. Please try again later.</p>
         </div>
       );
