@@ -15,7 +15,7 @@
 
 ### Deloyed Version of app
 
-(https://movie-flix-016d34.netlify.app/)[https://movie-flix-016d34.netlify.app/]
+(https://movie-flix-016d34.netlify.app/)
 
 The application will start running on [http://localhost:3000](http://localhost:3000). Open this URL in your browser to view the app.
 
