@@ -8,19 +8,25 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
+  // Create a debounced funtion to set the search term
+  // This helps to reduce the number of dispatches while typing
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSetSearchTerm = useCallback(
     debounce((query: string) => {
+      // DIspatch the setSearchTerm action with the query
       dispatch(setSearchTerm(query));
-    }, 2000),
+    }, 2000), // Wait for 2 second of inactivity before dispatching
     [dispatch]
   );
 
+  // Function for search input changes
   const handleSearchChange = (e: { target: { value: string } }) => {
     const query = e.target.value;
+    // Call the debounceed function with the new query
     debouncedSetSearchTerm(query);
   };
 
+  // Function to toggle the visibility of the search input
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
   };
