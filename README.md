@@ -29,5 +29,5 @@ Ensure you have the following installed:
  ```bash
 git clone https://github.com/noman318/movie-flix.git
 cd movie-flix
-npm i
+npm install
 npm start
