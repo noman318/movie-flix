@@ -25,7 +25,7 @@ Ensure you have the following installed:
 - [Git](https://git-scm.com/)
 - [Node.js and npm](https://nodejs.org/)
   
-##1. Clone the repository:
+## Clone the repository and follow the steps below
  ```bash
 git clone https://github.com/noman318/movie-flix.git
 cd movie-flix
