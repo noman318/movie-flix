@@ -26,7 +26,7 @@ Ensure you have the following installed:
 - [Node.js and npm](https://nodejs.org/)
  ```bash
 1. **Clone the repository:**
-   git clone (https://github.com/noman318/movie-flix.git)
+   git clone https://github.com/noman318/movie-flix.git
    cd movie-flix
    npm i
    npm start
