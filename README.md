@@ -24,16 +24,16 @@
 Ensure you have the following installed:
 - [Git](https://git-scm.com/)
 - [Node.js and npm](https://nodejs.org/)
-
-
-### Installation
-
-1. **Clone the repository:**
  ```bash
    git clone (https://github.com/noman318/movie-flix.git)
    cd movie-flix
    npm i
    npm start
+
+### Installation
+
+1. **Clone the repository:**
+
 
 
 ### `npm start`
