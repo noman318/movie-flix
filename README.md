@@ -25,6 +25,7 @@ Ensure you have the following installed:
 - [Git](https://git-scm.com/)
 - [Node.js and npm](https://nodejs.org/)
  ```bash
+1. **Clone the repository:**
    git clone (https://github.com/noman318/movie-flix.git)
    cd movie-flix
    npm i
@@ -32,10 +33,12 @@ Ensure you have the following installed:
 
 ### Installation
 
-1. **Clone the repository:**
 
 
 
+## Available Scripts
+
+In the project directory, you can run:
 ### `npm start`
 
 Runs the app in development mode.\
