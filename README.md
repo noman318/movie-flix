@@ -17,9 +17,24 @@
 
 (https://movie-flix-016d34.netlify.app/)
 
-## Available Scripts
+## Steps to run the project
 
-In the project directory, you can run:
+### Prerequisites
+
+Ensure you have the following installed:
+- [Git](https://git-scm.com/)
+- [Node.js and npm](https://nodejs.org/)
+
+
+### Installation
+
+1. **Clone the repository:**
+ ```bash
+   git clone (https://github.com/noman318/movie-flix.git)
+   cd movie-flix
+   npm i
+   npm start
+
 
 ### `npm start`
 
